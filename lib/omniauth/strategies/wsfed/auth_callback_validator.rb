@@ -33,6 +33,8 @@ module OmniAuth
         end
 
         def validate_audience!
+          puts "auth_callback.audience: #{auth_callback.audience}"
+          puts "wsfed_settings[:realm]: #{wsfed_settings[:realm]}"
           raise OmniAuth::Strategies::WSFed::ValidationError.new(AUDIENCE_MISMATCH) unless
               auth_callback.audience == wsfed_settings[:realm]
         end
